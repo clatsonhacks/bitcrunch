@@ -67,6 +67,28 @@ export const handleCategory = async (category) => {
           } catch (error) {
             console.error("Error fetching data:", error);
             return [];
+        }
+        
+        case "4":
+          console.log("Category 4: NFT Top Deals-related question.");
+          
+          try {
+            const response = await fetch(
+              `https://api.unleashnfts.com/api/v2/nft/top_deals?sort_by=deal_score&sort_order=desc&offset=0&limit=10`,
+              {
+                headers: {
+                  accept: "application/json",
+                  "x-api-key": process.env.BITSCRUNCH_API_KEY,
+                },
+              }
+            );
+    
+            const result = await response.json();
+            console.log("Fetched Data:", result.data);
+            return result.data || [];
+          } catch (error) {
+            console.error("Error fetching data:", error);
+            return { error: "Error fetching category 1 data" };
           }
   
       default:
