@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'; // Only needed for Node.js; not required in browsers
+import fetch from 'node-fetch'; 
 
 const url = "https://api.groq.com/openai/v1/chat/completions";
 const apiKey = process.env.GROQ_API_KEY;
@@ -33,10 +33,9 @@ export async function makeRequest() {
 
     const data = await response.json();
 
-    // Assuming the response format has a `choices` array with `message.content`
-    const assistantReply = data.choices && data.choices[0].message.content;
+    const result = data.choices && data.choices[0].message.content;
     
-    console.log("Assistant's Response:", assistantReply);
+    console.log("Assistant's Response:", result);
 
   } catch (error) {
     console.error("Error:", error);

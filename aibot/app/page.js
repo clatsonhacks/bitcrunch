@@ -14,7 +14,7 @@ export default function Home() {
         <div className="flex-1 bg-transparent max-w-[calc(100%-994px)] w-full">
           <GeminiAI />
         </div>
-3
+
         <div className="flex-1 bg-transparent">
           
         </div>
