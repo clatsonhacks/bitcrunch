@@ -35,8 +35,18 @@ const GeminiAI = () => {
   };
 
   return (
-      <>
-      </>
+    <div className="h-full flex flex-col w-auto bg-cover bg-center bg-fixed" style={{ backgroundImage: 'url("/background/fantasy.jpg")' }}>
+    <div className="flex-grow bg-black bg-opacity-60 text-white p-4 rounded-md overflow-y-auto mb-4" style={{ maxHeight: 'calc(100vh - 130px)' }}>
+      {loading ? (
+        <p className="text-center text-xl animate-blink">Analyzing...</p>
+      ) : (
+        <div
+          dangerouslySetInnerHTML={{ __html: marked(response) }}
+          style={{ whiteSpace: 'pre-wrap' }}
+        />
+      )}
+    </div>
+    </div>
   );
 };
 
