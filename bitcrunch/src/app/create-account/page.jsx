@@ -1,14 +1,21 @@
-import React from 'react'
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { Button } from '@/components/ui/button';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { WagmiProvider } from 'wagmi';
+import { ConnectButton, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { config } from './wagmi';
+import Index from '.';
 
-function page() {
- 
+const client = new QueryClient();
+
+function MyApp({component,pageprops}) {
   return (
-    <div className='flex flex-col items-center justify-center h-screen bg-gray-100 ' style={{ backgroundImage: 'url("/background/What if home page.png")', backgroundAttachment:'fixed' }}>
-        <ConnectButton />
-    </div>
-  )
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={client}>
+        <RainbowKitProvider>
+          <Component {...pageProps}/>
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  );
 }
 
-export default page
+export default MyApp;

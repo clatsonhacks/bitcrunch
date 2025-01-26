@@ -31,7 +31,7 @@ export default function LineGraph({address}) {
   const [transactionData, setTransactionData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isDataFetched, setIsDataFetched] = useState(false); // Track if data was successfully fetched
-  const contractAddress = address;
+  const contractAddress = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb";
   console.log(contractAddress);
 
   useEffect(() => {

@@ -1,6 +1,5 @@
 import { handleCategory } from "./handleCategories";
-import fetch from 'node-fetch'; 
-
+import fetch from 'node-fetch';
 const url = "https://api.groq.com/openai/v1/chat/completions";
 const apiKey = process.env.GROQ_API_KEY;
 
@@ -69,16 +68,16 @@ export async function POST(req) {
 
     if (categoryNumber === "1") {
       categoryData = await handleCategory("1");
-      ansprompt = `According to the prompt "${prompt}", answer with the following data "${JSON.stringify(categoryData)}" as a sample and provide a response formatted with markdown for bold and italic text where applicable.Links should be clickable in the markdown response.`;
+      ansprompt = `According to the prompt "${prompt}", answer with the following data "${JSON.stringify(categoryData)}" as a sample and provide a response formatted with markdown for bold and italic text where applicable.Ensure any links are bold and italics and in the response are clickable using markdown format like [Link Text](URL).Provide the answers in a descriptive format.`;
     } else if (categoryNumber === "2") {
       categoryData = await handleCategory("2");
-      ansprompt = `According to the prompt "${prompt}", provide answer using the following data "${JSON.stringify(categoryData)}.Ensure any links in the response are clickable using markdown format like [Link Text](URL)."`;
+      ansprompt = `According to the prompt "${prompt}", provide answer using the following data "${JSON.stringify(categoryData)}.Ensure any links are bold and italics and in the response are clickable using markdown format like [Link Text](URL)."`;
     } else if (categoryNumber === "3") {
       categoryData = await handleCategory("3");
-      ansprompt = `According to the prompt "${prompt}", provide answer using the following data "${JSON.stringify(categoryData)}.Ensure any links in the response are clickable using markdown format like [Link Text](URL).Provide the answers in a descriptive format."`;
+      ansprompt = `According to the prompt "${prompt}", provide answer using the following data "${JSON.stringify(categoryData)}.Ensure any links are bold and italics and in the response are clickable using markdown format like [Link Text](URL).Provide the answers in a descriptive format."`;
     } else if (categoryNumber === "4") {
       categoryData = await handleCategory("4");
-      ansprompt = `According to the prompt "${prompt}", provide answer using the NFT datas that you already have a clarity about.Ensure any links in the response are clickable using markdown format like [Link Text](URL).Provide the answers in a descriptive format.You can also include numerical formats"`;
+      ansprompt = `According to the prompt "${prompt}", provide answer using the NFT datas that you already have a clarity about.Ensure any links are bold and italics and in the response are clickable using markdown format like [Link Text](URL).Provide the answers in a descriptive format.You can also include numerical formats"`;
     } else {
       categoryData = { message: "No specific data available for this category." };
     }
