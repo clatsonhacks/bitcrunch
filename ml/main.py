@@ -61,6 +61,11 @@ def priceDetect(df):
     model.fit(X_train, y_train)
     return model
 
+# Add a Hello Page
+@app.get("/")
+async def hello_page():
+    return {"message": "Hello, World!"}
+    
 @app.post("/predict/")
 async def predict_price(request: PredictionRequest):
     df = apiFetching(request.contract_address)
