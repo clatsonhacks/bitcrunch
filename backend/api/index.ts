@@ -30,9 +30,31 @@ app.post('/api/save', (req, res) => {
   res.status(201).json({ message: 'Data saved successfully.', data: newData });
 });
 
+let hourlyData = [];
+let dailyData = [];
+
+// POST endpoint for saving hourly data
+app.post("/api/save-hourly-data", (req, res) => {
+  hourlyData = req.body;
+  console.log("Hourly data saved:", hourlyData);
+  res.status(200).send({ message: "Hourly data saved successfully!" });
+});
+
+// POST endpoint for saving daily data
+app.post("/api/save-daily-data", (req, res) => {
+  dailyData = req.body;
+  console.log("Daily data saved:", dailyData);
+  res.status(200).send({ message: "Daily data saved successfully!" });
+});
+
 app.get("/api/data", (req, res) => {
   res.json(dataStore);
 });
+
+app.get("/api/metadata",(res,req)=>{
+  res.json(hourlyData);
+  res.json(dailyData);
+})
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
