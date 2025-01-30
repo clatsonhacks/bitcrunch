@@ -1,7 +1,7 @@
 import fetch from "node-fetch"
 
 // Define the API endpoints
-const PREDICT_URL = "https://bitcrunch.onrender.com/predict/"
+const PREDICT_URL = "https://bitcrunch-predictfuture.onrender.com/predict/"
 const PREDICTED_PRICES_URL = "https://bitcrunch-1.onrender.com/predicted_prices/"
 const RISK_ANALYSIS_URL="https://bitcrunch-risk.onrender.com/process-data"
 
