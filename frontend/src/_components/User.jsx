@@ -6,9 +6,10 @@ import React, { useEffect } from 'react'
 
 function User() {
     const router = useRouter();
-    const userAddress = localStorage.getItem('walletAddress');
+    const userAddress = null;
 
     useEffect(() => {
+    const userAddress = localStorage.getItem('walletAddress');
       if (!userAddress) {
         router.push('/create-account');
       }
