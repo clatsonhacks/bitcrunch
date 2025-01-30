@@ -47,22 +47,30 @@ export default function LineGraphs() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#000", padding: "20px", borderRadius: "10px", color: "white" }}>
       <h2>Hourly Predictions</h2>
       {hourlyData.map((entry, index) => (
-        <div key={index}>
+        <div key={index} style={{ marginBottom: "10px" }}>
           <span>{entry.timestamp}</span>
           <input
             type="number"
             value={entry.sale_price_usd}
             onChange={(e) => updateHourlyPrice(index, e.target.value)}
+            style={{
+              backgroundColor: "#222",
+              color: "#fff",
+              border: "1px solid #444",
+              padding: "5px",
+              borderRadius: "5px",
+              marginLeft: "10px"
+            }}
           />
         </div>
       ))}
       <LineChart width={800} height={400} data={hourlyData}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="timestamp" tickFormatter={(val) => val.slice(5, 10)} />
-        <YAxis />
+        <XAxis dataKey="timestamp" tick={{ fill: "white" }} tickFormatter={(val) => val.slice(5, 10)} />
+        <YAxis tick={{ fill: "white" }} />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="sale_price_usd" stroke="#8884d8" strokeWidth={2} />
@@ -70,19 +78,27 @@ export default function LineGraphs() {
 
       <h2>Daily Predictions</h2>
       {dailyData.map((entry, index) => (
-        <div key={index}>
+        <div key={index} style={{ marginBottom: "10px" }}>
           <span>{entry.timestamp}</span>
           <input
             type="number"
             value={entry.sale_price_usd}
             onChange={(e) => updateDailyPrice(index, e.target.value)}
+            style={{
+              backgroundColor: "#222",
+              color: "#fff",
+              border: "1px solid #444",
+              padding: "5px",
+              borderRadius: "5px",
+              marginLeft: "10px"
+            }}
           />
         </div>
       ))}
       <LineChart width={800} height={400} data={dailyData}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="timestamp" tickFormatter={(val) => val.slice(5, 10)} />
-        <YAxis />
+        <XAxis dataKey="timestamp" tick={{ fill: "white" }} tickFormatter={(val) => val.slice(5, 10)} />
+        <YAxis tick={{ fill: "white" }} />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="sale_price_usd" stroke="#82ca9d" strokeWidth={2} />
