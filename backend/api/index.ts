@@ -53,6 +53,7 @@ app.get("/api/data", (req, res) => {
 
 app.get("/api/metadata",(req,res)=>{
   res.json(hourlyData);
+  res.json(dailyData);
 });
 
 app.use((err, req, res, next) => {
