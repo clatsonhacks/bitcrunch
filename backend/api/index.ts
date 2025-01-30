@@ -51,9 +51,9 @@ app.get("/api/data", (req, res) => {
   res.json(dataStore);
 });
 
-app.get("/api/metadata",(res,req)=>{
+app.get("/api/metadata",(req,res)=>{
   res.json(hourlyData);
-})
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
